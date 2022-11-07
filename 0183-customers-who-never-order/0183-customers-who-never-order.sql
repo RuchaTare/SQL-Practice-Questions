@@ -7,5 +7,11 @@
 #approach 
 #un match customer - id to orders - customerid
 
-SELECT  name as Customers from Customers c
-WHERE c.id not in (select customerId from orders)
+# SELECT  name as Customers from Customers c
+# WHERE c.id not in (select customerId from orders)
+
+SELECT Customers.name AS Customers
+FROM Customers
+LEFT JOIN Orders
+ON Customers.Id = Orders.CustomerId
+WHERE Orders.CustomerId IS NULL ;
